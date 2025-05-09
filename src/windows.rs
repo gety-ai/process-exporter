@@ -27,6 +27,9 @@ pub struct PdhGpu {
     ctrs: Vec<PDH_HCOUNTER>,
 }
 
+unsafe impl Send for PdhGpu {}
+unsafe impl Sync for PdhGpu {}
+
 fn format_phd_message(err_code: u32) -> Option<String> {
     let lib = unsafe {
         Owned::new(
@@ -130,6 +133,10 @@ impl PdhGpu {
 
         unsafe { PdhCollectQueryData(query) };
         Ok(Self { query, ctrs })
+    }
+
+    pub fn is_active(&self) -> bool {
+        !self.ctrs.is_empty()
     }
 
     pub fn sample(&self) -> f64 {

@@ -15,6 +15,10 @@ widestring = "1.0"
 log = "0.4"
 env_logger = "0.11.8"
 anyhow = "1"
+sysinfo = "0.35"
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+axum = { version = "0.8", features = ["macros"] }
 
 # Windows API FFI
 windows = { version = "0.61.1", features = [
