@@ -71,7 +71,7 @@ async fn main() -> Result<(), anyhow::Error> {
 
     let gpu = Gpu::new(app.pid).unwrap();
 
-    assert!(gpu.is_active(), "GPU metrics not available");
+    eprintln!("GPU metrics: {}", gpu.is_active());
 
     let app = Router::new()
         .route("/metrics", get(get_metrics))
