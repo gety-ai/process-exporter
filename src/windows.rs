@@ -113,7 +113,7 @@ impl PdhGpu {
         }
 
         let list = parse_multi_string(&buf);
-        eprintln!("list: {:#?}", list);
+        // eprintln!("list: {:#?}", list);
 
         let mut ctrs = Vec::new();
         let pid = format!("pid_{}", pid);
