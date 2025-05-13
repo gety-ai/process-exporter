@@ -22,8 +22,13 @@ use tokio::{
 
 #[cfg(target_os = "windows")]
 mod windows;
-
+#[cfg(target_os = "linux")]
 pub use windows::PdhGpu as Gpu;
+
+#[cfg(target_os = "macos")]
+mod macos;
+#[cfg(target_os = "macos")]
+pub use macos::Gpu;
 
 fn setup_logger() -> Result<(), anyhow::Error> {
     env_logger::builder()

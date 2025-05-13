@@ -20,6 +20,7 @@ clap = { version = "4", features = ["derive"] }
 serde = { version = "1", features = ["derive"] }
 axum = { version = "0.8", features = ["macros"] }
 
+[target.'cfg(target_os = "windows")'.dependencies]
 # Windows API FFI
 windows = { version = "0.61.1", features = [
     "Win32_Foundation",
